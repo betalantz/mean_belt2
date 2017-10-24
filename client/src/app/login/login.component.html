@@ -1,2 +1,9 @@
 <h2>Welcome to Online Bidding!</h2>
 <h4>Please register your name.</h4>
+<br>
+<form (submit)="login()" #loginForm='ngForm'>
+  <div class="form-group">
+      <p><input type="text" name="name" [(ngModel)]="user.name"></p>
+  </div>
+      <button type="submit" class="btn btn-primary">Enter</button>
+</form>
