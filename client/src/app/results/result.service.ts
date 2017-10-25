@@ -18,4 +18,7 @@ export class ResultService {
   getProducts() {
     return this._http.get("/getProducts").map(data => data.json()).toPromise()
   }
+  start_bids() {
+    return this._http.get("/reset").map(data => data.json()).toPromise()
+  }
 }

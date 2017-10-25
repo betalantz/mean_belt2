@@ -6,39 +6,44 @@
 <h1 *ngIf="currUser">{{currUser}} ended the Bid!</h1>
 <br>
 <h3>Highest Bidder per Product:</h3>
-
-    <div class="card" style="width: 20rem;">
+<div class="row" *ngIf="products">
+    <div class="col-3">
+    <div class="card">
       <img class="card-img-top" src="..." alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title">{{products[0].prod_name}}</h4>
         <div class="card-footer">
-          {{products[0].bids[bids.length-1].name}}
-          {{products[0].bids[bids.length-1].amount}}
+          <p>{{highBids[0].name}}:</p>
+          <p>${{highBids[0].amount}}</p>
         </div>
       </div>
     </div>
-    <div class="card" style="width: 20rem;">
+    </div>
+    <div class="col-3">
+    <div class="card">
       <img class="card-img-top" src="..." alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title">{{products[0].prod_name}}</h4>
         <div class="card-footer">
-          {{products[1].bids[bids.length-1].name}}
-          {{products[1].bids[bids.length-1].amount}}
+            <p>{{highBids[1].name}}:</p>
+            <p>${{highBids[1].amount}}</p>
         </div>
       </div>
     </div>
-    <div class="card" style="width: 20rem;">
+  </div>
+  <div class="col-3">
+    <div class="card">
       <img class="card-img-top" src="..." alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title">{{products[0].prod_name}}</h4>
         <div class="card-footer">
-          {{products[2].bids[bids.length-1].name}}
-          {{products[2].bids[bids.length-1].amount}}
+            <p>{{highBids[2].name}}:</p>
+            <p>${{highBids[2].amount}}</p>
         </div>
       </div>
     </div>
-  
-
+  </div>
+</div>
     <div class="d-flex justify-content-end">
-        <button class="btn btn-primary " href="/bids" type="button">Start Bid</button>
+        <button class="btn btn-primary " (click)="reset()" type="button">Start Bid</button>
     </div>

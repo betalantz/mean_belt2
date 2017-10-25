@@ -11,7 +11,7 @@ module.exports = {
             console.log(req.session.name, 'is logged in');
             res.json(req.session.name)
 		} else {
-			res.status(401).json(false)
+            res.status(401).json(false)
 		}
     },
     logout: (req, res) => {
@@ -40,14 +40,12 @@ module.exports = {
         Product.findById({_id: pdid})
             .then((result, err) => {
             myProd = result;
-
             console.log('in the promise', myProd.prod_name, myProd.bids);
-            
             myProd.bids.push({name: bidder, amount: amt})
-            // Product.update({ prod_name: pdname}, {$set: { 'bids.name': bidder, 'bids.amount': amt}}, function(err, req){
             myProd.save( function(err, req){
                 if(err){
                     console.log('Update product err in ctrl', err);
+                    res.status(400).json(err)
                 } else {
                     console.log('Bid entered at ctrl');
                     res.json(true)
@@ -58,6 +56,27 @@ module.exports = {
                 res.status(500).json(err)
             })
             console.log('outside of the .then', myProd.bids);
+        })
+    },
+    reset: (req, res) => {
+        Product.find()
+        .then(products => {resetHelper(products, res)
+        })
+        .catch(err => {
+            console.log("Reset error in ctrl", err)
+            res.status(500).json(err)
+        })
+    },
+}
+function resetHelper (products, res) {
+    let count = 0
+    for(let product of products){
+        let curr_id = product._id
+        Product.update({_id: curr_id}, {bids: []}, (err)=>{
+            console.log('Reset a product bids', err);
+            if (++count == 3){
+                res.status(200).json("all ok")
+            }
         })
     }
 }

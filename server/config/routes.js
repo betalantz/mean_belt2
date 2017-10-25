@@ -8,7 +8,6 @@ module.exports = app => {
     app.get('/getProducts', products.get_all)
     app.post('/makeBid', products.make_bid)
     app.get('/logout', products.logout)
-
-    
+    app.get('/reset', products.reset)
     app.get("*", (req, res) => res.sendFile(path.resolve("./client/dist/index.html")))
 }
