@@ -14,6 +14,11 @@ module.exports = {
 			res.status(401).json(false)
 		}
     },
+    logout: (req, res) => {
+		req.session.destroy()
+        console.log('user logged out');
+        res.redirect("/")
+	},
     get_all: (req, res) => {
 		Product.find()
 			.then(products => {

@@ -7,6 +7,8 @@ module.exports = app => {
     app.get('/login_stat', products.login_stat)
     app.get('/getProducts', products.get_all)
     app.post('/makeBid', products.make_bid)
+    app.get('/logout', products.logout)
+
     
     app.get("*", (req, res) => res.sendFile(path.resolve("./client/dist/index.html")))
 }

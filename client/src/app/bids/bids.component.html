@@ -1,6 +1,6 @@
 <ul class="nav justify-content-end">
     <li class="nav-item">
-      <a class="nav-link active" href="#">Logout</a>
+      <a class="nav-link active" href="/logout">Logout</a>
     </li>
 </ul>
 <h1 *ngIf="currUser">Bid Now, {{currUser}}!</h1>
@@ -14,13 +14,18 @@
             <div class="card-footer">
                 <form (submit)="makeBid1()">
                       <div class="input-group">
-                        <input type="number" class="form-control" placeholder="Place bid" [(ngModel)]="bidAmt1" name="bidAmt1">
+                        <input min="1" type="number" class="form-control" placeholder="Place bid" [(ngModel)]="bidAmt1" name="bid1" #bid1='ngModel'>
                         <span class="input-group-btn">
                           <button class="btn btn-secondary" type="submit">Bid</button>
                         </span>
                       </div>
                 </form>
               </div>
+              <div class="alert alert-danger" *ngIf="lowAlert">Bid amount should be higher than the previous bid.</div>
+            </div>
+            <div class="alert alert-danger" *ngIf="bid1.touched && !bid1.valid">
+              <div *ngIf="bid1.errors.min">Bid amount should be 1 or higher.</div>
+              <!-- <div *ngIf="bid1.errors.required">Please enter your bid.</div> -->
             </div>
           </div>
       </div>
@@ -33,15 +38,20 @@
               <div class="card-footer">
                 <form (submit)="makeBid2()">
                       <div class="input-group">
-                        <input type="number" class="form-control" placeholder="Place bid" [(ngModel)]="bidAmt2" name="bidAmt2">
+                        <input min="1" type="number" class="form-control" placeholder="Place bid" [(ngModel)]="bidAmt2" name="bid2" #bid2='ngModel'>
                         <span class="input-group-btn">
                           <button class="btn btn-secondary" type="submit">Bid</button>
                         </span>
                       </div>
                 </form>
               </div>
+              <div class="alert alert-danger" *ngIf="lowAlert">Bid amount should be higher than the previous bid.</div>
             </div>
-          </div>
+            <div class="alert alert-danger" *ngIf="bid2.touched && !bid2.valid">
+                <div *ngIf="bid2.errors.min">Bid amount should be 1 or higher.</div>
+                <!-- <div *ngIf="bid2.errors.required">Please enter your bid.</div> -->
+              </div>
+            </div>
       </div>
     <div class="col-3">           
         <div class="card" >
@@ -52,15 +62,20 @@
               <div class="card-footer">
                 <form (submit)="makeBid3()">
                       <div class="input-group">
-                        <input type="number" class="form-control" placeholder="Place bid" [(ngModel)]="bidAmt3" name="bidAmt3">
+                        <input min="1" type="number" class="form-control" placeholder="Place bid" [(ngModel)]="bidAmt3" name="bid3" #bid3='ngModel'>
                         <span class="input-group-btn">
                           <button class="btn btn-secondary" type="submit">Bid</button>
                         </span>
                       </div>
                 </form>
               </div>
+              <div class="alert alert-danger" *ngIf="lowAlert">Bid amount should be higher than the previous bid.</div>              
             </div>
-          </div>
+            <div class="alert alert-danger" *ngIf="bid3.touched && !bid3.valid">
+                <div *ngIf="bid3.errors.min">Bid amount should be 1 or higher.</div>
+                <!-- <div *ngIf="bid3.errors.required">Please enter your bid.</div> -->
+              </div>
+            </div>
       </div>
     </div>
       
@@ -87,3 +102,6 @@
         </div>
       </div>
     </div>
+<div class="d-flex justify-content-end">
+  <button (click)="endBid()" class="btn btn-primary " type="button">End Bid</button>
+</div>
