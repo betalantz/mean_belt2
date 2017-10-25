@@ -23,6 +23,6 @@ export class BidService {
   }
   makeBid(pdid, amt) {
     console.log('Data in service', pdid, amt);
-    return this._http.post("/login", {id:pdid, amount:amt}).map(data => data.json()).toPromise()
+    return this._http.post("/makeBid", {id:pdid, amount:amt}).map(data => data.json()).toPromise()
   }
 }

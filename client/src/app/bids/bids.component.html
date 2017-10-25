@@ -6,23 +6,84 @@
 <h1 *ngIf="currUser">Bid Now, {{currUser}}!</h1>
   <div class="row" *ngIf="products">
     <div class="col-3">
-        <div class="card" style="width: 20rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card" >
+          <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">{{products[0].prod_name}}</h4>
               <p class="card-text">{{products[0].desc}}</p>
-              <div class="card-footer">
+            <div class="card-footer">
                 <form (submit)="makeBid1()">
-                  
                       <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Place bid" [(ngModel)]="bidAmt" name="bidAmt">
+                        <input type="number" class="form-control" placeholder="Place bid" [(ngModel)]="bidAmt1" name="bidAmt1">
                         <span class="input-group-btn">
                           <button class="btn btn-secondary" type="submit">Bid</button>
                         </span>
                       </div>
-                  
                 </form>
               </div>
             </div>
           </div>
+      </div>
+    <div class="col-3">
+      <div class="card" >
+          <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">{{products[1].prod_name}}</h4>
+              <p class="card-text">{{products[1].desc}}</p>
+              <div class="card-footer">
+                <form (submit)="makeBid2()">
+                      <div class="input-group">
+                        <input type="number" class="form-control" placeholder="Place bid" [(ngModel)]="bidAmt2" name="bidAmt2">
+                        <span class="input-group-btn">
+                          <button class="btn btn-secondary" type="submit">Bid</button>
+                        </span>
+                      </div>
+                </form>
+              </div>
+            </div>
+          </div>
+      </div>
+    <div class="col-3">           
+        <div class="card" >
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">{{products[2].prod_name}}</h4>
+              <p class="card-text">{{products[2].desc}}</p>
+              <div class="card-footer">
+                <form (submit)="makeBid3()">
+                      <div class="input-group">
+                        <input type="number" class="form-control" placeholder="Place bid" [(ngModel)]="bidAmt3" name="bidAmt3">
+                        <span class="input-group-btn">
+                          <button class="btn btn-secondary" type="submit">Bid</button>
+                        </span>
+                      </div>
+                </form>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+      
+    <div class="row" *ngIf="products">
+      <div class="col-3">
+        <div class="list-group">
+          <ul *ngFor="let bid of products[0].bids" class="list-group">
+              <li class="list-group-item">{{bid.name}}: ${{bid.amount}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="list-group">
+          <ul *ngFor="let bid of products[1].bids" class="list-group">
+              <li class="list-group-item">{{bid.name}}: ${{bid.amount}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="list-group">
+          <ul *ngFor="let bid of products[2].bids" class="list-group">
+              <li class="list-group-item">{{bid.name}}: ${{bid.amount}}</li>
+          </ul>
+        </div>
+      </div>
     </div>
