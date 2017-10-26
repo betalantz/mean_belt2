@@ -7,7 +7,7 @@
   <div class="row" *ngIf="products">
     <div class="col-3">
         <div class="card" >
-          <img class="card-img-top" src="..." alt="Card image cap">
+          <img class="card-img-top" src="{{products[0].img}}" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">{{products[0].prod_name}}</h4>
               <p class="card-text">{{products[0].desc}}</p>
@@ -31,7 +31,7 @@
       </div>
     <div class="col-3">
       <div class="card" >
-          <img class="card-img-top" src="..." alt="Card image cap">
+          <img class="card-img-top" src="{{products[1].img}}" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">{{products[1].prod_name}}</h4>
               <p class="card-text">{{products[1].desc}}</p>
@@ -55,7 +55,7 @@
       </div>
     <div class="col-3">           
         <div class="card" >
-            <img class="card-img-top" src="..." alt="Card image cap">
+            <img class="card-img-top" src="{{products[2].img}}" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">{{products[2].prod_name}}</h4>
               <p class="card-text">{{products[2].desc}}</p>

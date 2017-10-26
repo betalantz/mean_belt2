@@ -9,7 +9,7 @@
 <div class="row" *ngIf="products">
     <div class="col-3">
     <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
+      <img class="card-img-top" src="{{products[0].img}}" alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title">{{products[0].prod_name}}</h4>
         <div class="card-footer">
@@ -21,9 +21,9 @@
     </div>
     <div class="col-3">
     <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
+      <img class="card-img-top" src="{{products[1].img}}" alt="Card image cap">
         <div class="card-body">
-          <h4 class="card-title">{{products[0].prod_name}}</h4>
+          <h4 class="card-title">{{products[1].prod_name}}</h4>
         <div class="card-footer">
             <p>{{highBids[1].name}}:</p>
             <p>${{highBids[1].amount}}</p>
@@ -33,9 +33,9 @@
   </div>
   <div class="col-3">
     <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
+      <img class="card-img-top" src="{{products[2].img}}" alt="Card image cap">
         <div class="card-body">
-          <h4 class="card-title">{{products[0].prod_name}}</h4>
+          <h4 class="card-title">{{products[2].prod_name}}</h4>
         <div class="card-footer">
             <p>{{highBids[2].name}}:</p>
             <p>${{highBids[2].amount}}</p>
